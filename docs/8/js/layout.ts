@@ -38,7 +38,7 @@ module TP.Layout {
          });
 
          $(document).on('click', '[data-dashboard-nav-show=main]', (e:Event)=>{
-            $('[data-dashboard-nav=main]').toggle();
+            $('[data-dashboard-nav=main]').toggleClass('tpl-dashboard-nav_hide');
             $('[data-dashboard-content=main]').toggle();
             e.preventDefault();
          });

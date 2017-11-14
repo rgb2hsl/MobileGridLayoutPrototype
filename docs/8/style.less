@@ -107,7 +107,7 @@ body {
                           "content";
 
   @media (min-width: @tpl-w-desktop) {
-    grid-template-columns:  1fr 600px;
+    grid-template-columns:  1fr 678px;
     grid-template-rows:     auto;
     grid-template-areas:    "nav content";
   }
@@ -119,13 +119,20 @@ body {
       grid-area: nav;
     }
   }
-  .tpl-dashboard__nav-control { grid-area: control; }
+  .tpl-dashboard__nav-control {
+    grid-area: control;
+    @media (min-width: @tpl-w-desktop) {
+      display: none;
+    }
+  }
 
 }
 
 .tpl-dashboard-nav {}
 .tpl-dashboard-nav_hide {
-  display: none;
+  @media (max-width: (@tpl-w-desktop - 1)) {
+    display: none;
+  }
 }
 
 
