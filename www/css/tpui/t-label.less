@@ -1,0 +1,259 @@
+@import "/css/tp.variables.less";
+@import "mixins.less";
+@import "type.less";
+
+.t-label {
+  display: inline-block;
+
+  .mixin-t-label-style();
+
+  line-height: @tp-classic-line-height-base;
+  font-size: @tp-classic-font-size-base;
+
+  .t-label__icon,
+  .svg-icon {
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+    margin-top: -2px;
+  }
+
+  .__indicator {
+    display: inline-block;
+
+    vertical-align: baseline;
+
+    border-radius: 50%;
+    width: @tp-mod;
+    height: @tp-mod;
+
+    background-color: @bs3-brand-success;
+
+    &.__indicator_off {
+      background-color: mix(@bs3-gray-light,@bs3-gray-lighter,50%);
+    }
+
+    &.__activity-indicator {
+      &.__activity-indicator_event,
+      &.__activity-indicator_registration,
+      &.__activity-indicator_ticket {
+        background-color: #006633;
+      }
+
+      &.__activity-indicator_maillist,
+      &.__activity-indicator_mail {
+        background-color: #ff9900;
+      }
+
+      &.__activity-indicator_org {
+        background-color: #660066;
+      }
+    }
+  }
+}
+
+/**
+  Размеры
+ */
+.t-label {
+  &.t-label_sm {
+    padding: @tp-mod*.25 @tp-mod*.75;
+
+    font-size: @tp-classic-font-size-xs;
+    line-height: @tp-classic-line-height-xs;
+  }
+
+  &.t-label_lg {
+    padding: @tp-mod @tp-mod*1.5;
+
+    font-size: @tp-classic-font-size-large;
+    line-height: @tp-classic-line-height-large-narrow;
+  }
+}
+
+.t-label.t-label_code {
+  font-family: @tp-font-family-monospace;
+}
+
+/** Для лейблов в ячейках таблиц */
+td > .t-label {
+  white-space: nowrap;
+}
+
+.t-label-transparent {
+  display: inline-block;
+
+  padding: @tp-mod*.5 @tp-mod;
+  .mixin-border-radius(@bs3-border-radius-base);
+
+  line-height: @tp-classic-line-height-base;
+
+  &.t-label_sm {
+    padding: @tp-mod*.5 @tp-mod;
+    font-size: @tp-classic-font-size-xs;
+    line-height: @tp-classic-line-height-xs;
+  }
+
+  .__indicator {
+    display: inline-block;
+
+    vertical-align: baseline;
+
+    border-radius: 50%;
+    width: @tp-mod;
+    height: @tp-mod;
+
+    background-color: @bs3-brand-success;
+
+    &.__indicator_off {
+      background-color: @bs3-brand-danger;
+    }
+  }
+}
+
+.t-label.__indicator_switch {
+    cursor: pointer;
+}
+
+.t-label.t-label_disabled {
+  .color(@bs3-gray-dark);
+  background-color: @bs3-gray-lighter;
+}
+
+.t-label.t-label_round {
+  border-radius: 32px;
+}
+
+.t-label.t-label_sm.t-label_icon {
+  padding: 2px;
+  margin-right: 4px;
+}
+
+.t-label_icon {
+  .t-label__icon {
+    margin-top: 0;
+  }
+}
+
+.t-label.t-label_warning {
+  .color(#fff);
+  background-color: @bs3-brand-warning;
+  .t-label__icon {
+    fill: #fff;
+  }
+}
+.t-label.t-label_danger,
+.t-label.t-label_important {
+  .color(#fff);
+  background-color: @bs3-brand-danger;
+  .t-label__icon {
+    fill: #fff;
+  }
+}
+.t-label.t-label_success {
+  .color(#fff);
+  background-color: @bs3-brand-success;
+  .t-label__icon {
+    fill: #fff;
+  }
+}
+.t-label.t-label_info {
+  .color(#fff);
+  background-color: @bs3-brand-info;
+  .t-label__icon {
+    fill: #fff;
+  }
+}
+.t-label.t-label_lime {
+  .color(@bs3-brand-success);
+  background-color: @tp-lime;
+  .t-label__icon {
+    fill: @bs3-brand-success;
+  }
+}
+
+.t-label.t-label_timepad {
+  background-color: mix(@tp-promo-timepad, #fff, 20%);
+  .color(@tp-promo-timepad);
+}
+
+.t-label.t-label_partners {
+  background-color: mix(@tp-promo-partners, #fff, 20%);
+  .color(@tp-promo-partners);
+}
+
+.t-label.t-label_socials {
+  background-color: mix(@tp-promo-socials, #fff, 20%);
+  .color(@tp-promo-socials);
+}
+
+.t-label.t-label_email {
+  background-color: mix(@tp-promo-email, #fff, 20%);
+  .color(@tp-promo-email);
+}
+
+.t-label.t-label_sites,
+.t-label.t-label_other {
+  background-color: mix(@tp-brand-color, #fff, 20%);
+  .color(@tp-brand-color);
+}
+
+.t-label.t-label_vk {
+  background-color: @vk-color;
+  .color(#fff);
+}
+
+.t-label.t-label_fb {
+  background-color: @fb-color;
+  .color(#fff);
+}
+
+.t-label.t-label_total {
+  background-color: mix(@tp-crm-mail-total-color, #fff, 20%);
+  .color(@tp-crm-mail-total-color);
+}
+
+.t-label.t-label_delivered {
+  background-color: mix(@tp-crm-mail-delivered-color, #fff, 20%);
+  .color(@tp-crm-mail-delivered-color);
+}
+
+.t-label.t-label_clicks {
+  background-color: mix(@tp-crm-mail-clicks-color, #fff, 20%);
+  .color(@tp-crm-mail-clicks-color);
+}
+
+.t-label.t-label_unsubscribe {
+  background-color: mix(@tp-crm-mail-unsubscribe-color, #fff, 20%);
+  .color(@tp-crm-mail-unsubscribe-color);
+}
+
+.t-label.t-label_draft {
+  background-color: @bs3-gray-most-light;
+  .color(@tp-gray-unholy);
+}
+
+.t-label.t-label_pending {
+  background-color: mix(mix(@tp-gray-unholy,@tp-brand-color,50%), #fff, 20%);
+  .color(mix(@tp-gray-unholy,@tp-brand-color,50%));
+}
+
+.t-label.t-label_processing {
+  background-color: mix(@tp-brand-color, #fff, 20%);
+  .color(@tp-brand-color);
+}
+
+.t-label.t-label_halted {
+  background-color: mix(mix(@bs3-brand-danger,@bs3-brand-warning,50%), #fff, 20%);
+  .color(@bs3-brand-danger);
+}
+
+.t-label.t-label_deleted {
+  background-color: mix(@bs3-brand-danger, #fff, 20%);
+  .color(@bs3-brand-danger);
+}
+
+.t-label.t-label_featured {
+  background-color: @tp-featured;
+  .color(#fff);
+}

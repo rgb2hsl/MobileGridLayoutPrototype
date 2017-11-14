@@ -1,0 +1,204 @@
+@import "/css/tp.variables.less";
+@import "/css/tp.mixins.less";
+
+@tpui-cols: 6;
+
+/*  ==========================================  */
+/*  Абстрактные блоки                           */
+/*  ==========================================  */
+
+.l-flex {
+  display: flex;
+  /** только первые два имеют полное название, потому что legacy */
+  &.l-flex_items_center, &.l-flex_i_c { align-items: center; }
+  &.l-flex_i_b { align-items: baseline; }
+  &.l-flex_content_center, .l-flex_c_c { justify-content: center; }
+  &.l-flex_fd_c { flex-direction: column; }
+}
+
+.l-flex__noshrink {
+  flex-shrink: 0;
+}
+
+.l-flex__1 { flex-grow: 1; }
+.l-flex__2 { flex-grow: 2; }
+.l-flex__3 { flex-grow: 3; }
+.l-flex__4 { flex-grow: 4; }
+.l-flex__5 { flex-grow: 5; }
+
+
+
+.l-unit {
+  position: relative;
+
+  margin: @tp-padding-medium-vertical 0;
+
+  &.l-unit_small {
+    margin: @tp-padding-small-vertical 0;
+  }
+  
+  &.l-unit_large {
+    margin: @tp-padding-large-vertical 0;
+  }
+}
+
+.l-row:extend(.clearfix all) {}
+
+.p_mod  { padding: @tp-mod !important;   }
+.p_2mod { padding: @tp-mod*2 !important; }
+.p_3mod { padding: @tp-mod*3 !important; }
+.p_4mod { padding: @tp-mod*4 !important; }
+
+.l-tiles-stack {
+  .l-tiles:first-child {
+    & > div {
+      border-bottom-left-radius: 0 !important;
+      border-bottom-right-radius: 0 !important;
+      border-bottom: none;
+    }
+  }
+  .l-tiles:last-child {
+    & > div {
+      border-top-left-radius: 0 !important;
+      border-top-right-radius: 0 !important;
+    }
+  }
+}
+
+.l-tiles {
+  display: flex;
+}
+
+.l-tiles__c {
+  padding: @tp-mod*2;
+  form:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.l-tiles__contols {
+  padding: @tp-mod @tp-mod*1.5;
+  form:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.mixin-make-tiles(@counter, @suffix, @color) when (@counter > 0) {
+  .mixin-make-tiles(@counter - 1, @suffix, @color);
+
+  .@{suffix}@{counter} {
+    flex: @counter;
+
+    box-sizing: border-box;
+    background-color: @color;
+    border: 4px solid @color;
+    border-left: none;
+
+  }
+
+  .@{suffix}@{counter}_hollow {
+    flex: @counter;
+
+    box-sizing: border-box;
+    background-color: transparent;
+    border: 4px solid @color;
+    border-left: none;
+
+  }
+
+  .@{suffix}@{counter}, .@{suffix}@{counter}_hollow {
+    &:first-child {
+      border-bottom-left-radius: @bs3-border-radius-base;
+      border-top-left-radius: @bs3-border-radius-base;
+      border-left: 4px solid @color;
+    }
+    &:last-child {
+      border-bottom-right-radius: @bs3-border-radius-base;
+      border-top-right-radius: @bs3-border-radius-base;
+    }
+    .__c {
+      padding: @tp-mod*2;
+    }
+  }
+}
+
+//тайлы в сетке по 12
+.mixin-make-tiles(@tpui-cols, l-tile_flex-, @bs3-gray-lighter);
+
+/**
+  Колонки l-cols
+ */
+
+
+.l-cols:extend(.clearfix all) {
+  display: flex;
+}
+
+.mixin-make-cols(@counter, @suffix) when (@counter > 0) {
+  .mixin-make-cols(@counter - 1, @suffix);
+
+  .@{suffix}@{counter} {
+    flex: @counter;
+    box-sizing: border-box;
+  }
+}
+
+//бутстрап 4 лайк
+.mixin-make-cols(@tpui-cols, l-col_);
+
+[class^="l-col_"] {
+  margin-right: @tp-mod*2;
+  &:last-of-type {
+    margin-right: 0;
+  }
+}
+
+/*  обертка для всего, чему нужно задать стандартную таймпадовскую ширину */
+.l-wrap {
+  width: @tp-classic-width;
+  margin: auto;
+  position: relative;
+}
+
+/* первый двухколоночный лейаут */
+.l-col-main {
+  float: left;
+  width: @tp-classic-mainarea-width;
+}
+
+.l-col {
+  float: right;
+  width: @tp-classic-column-width;
+  padding-left: @bs3-grid-gutter-width;
+}
+
+/* второй двухколоночный лейаут */
+.l-col-main-2 {
+  margin-left: @tp-classic-column-2-width + @bs3-grid-gutter-width;
+  width: @tp-classic-mainarea-2-width;
+}
+
+.l-col-2 {
+  float: left;
+  width: @tp-classic-column-2-width;
+}
+
+.l-dash-nav {
+  float: left;
+  width: @side-nav-width;
+}
+
+.l-dash-main {
+  float: left;
+  width: @tp-classic-wrapper-width - @side-nav-width - @bs3-grid-gutter-width;
+  margin-left: @bs3-grid-gutter-width;
+}
+
+/*  ==========================================  */
+/*  Блоки для элементов                         */
+/*  ==========================================  */
+
+//  на самом деле это нужно заменить на что-то более абстрактоное с отступом
+.l-menu {
+  margin-top: @tp-padding-medium-vertical;
+}

@@ -1,0 +1,204 @@
+@import (reference) "/css/tp.variables.less";
+@import "mixins.less";
+
+@font-face {
+  font-family: 'LatoWeb';
+  src: url('/fonts/lato/fonts/Lato-BlackItalic.eot'); /* IE9 Compat Modes */
+  src: url('/fonts/lato/fonts/Lato-BlackItalic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('/fonts/lato/fonts/Lato-BlackItalic.woff2') format('woff2'), /* Modern Browsers */
+  url('/fonts/lato/fonts/Lato-BlackItalic.woff') format('woff'), /* Modern Browsers */
+  url('/fonts/lato/fonts/Lato-BlackItalic.ttf') format('truetype');
+  font-style: italic;
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'LatoWeb';
+  src: url('/fonts/lato/fonts/Lato-Black.eot'); /* IE9 Compat Modes */
+  src: url('/fonts/lato/fonts/Lato-Black.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('/fonts/lato/fonts/Lato-Black.woff2') format('woff2'), /* Modern Browsers */
+  url('/fonts/lato/fonts/Lato-Black.woff') format('woff'), /* Modern Browsers */
+  url('/fonts/lato/fonts/Lato-Black.ttf') format('truetype');
+  font-style: normal;
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'LatoWeb';
+  src: url('/fonts/lato/fonts/Lato-Italic.eot'); /* IE9 Compat Modes */
+  src: url('/fonts/lato/fonts/Lato-Italic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('/fonts/lato/fonts/Lato-Italic.woff2') format('woff2'), /* Modern Browsers */
+  url('/fonts/lato/fonts/Lato-Italic.woff') format('woff'), /* Modern Browsers */
+  url('/fonts/lato/fonts/Lato-Italic.ttf') format('truetype');
+  font-style: italic;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'LatoWeb';
+  src: url('/fonts/lato/fonts/Lato-Regular.eot'); /* IE9 Compat Modes */
+  src: url('/fonts/lato/fonts/Lato-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('/fonts/lato/fonts/Lato-Regular.woff2') format('woff2'), /* Modern Browsers */
+  url('/fonts/lato/fonts/Lato-Regular.woff') format('woff'), /* Modern Browsers */
+  url('/fonts/lato/fonts/Lato-Regular.ttf') format('truetype');
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'LatoWeb Light';
+  src: url('/fonts/lato/fonts/Lato-Light.eot.eot'); /* IE9 Compat Modes */
+  src: url('/fonts/lato/fonts/Lato-Light.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('/fonts/lato/fonts/Lato-Light.woff2') format('woff2'), /* Modern Browsers */
+  url('/fonts/lato/fonts/Lato-Light.woff') format('woff'), /* Modern Browsers */
+  url('/fonts/lato/fonts/Lato-Light.ttf') format('truetype');
+  font-style: normal;
+  font-weight: normal;
+}
+
+html, body {
+  font-family: "Helvetica Neue", @tp-font-family-sans-serif;
+  font-size: @tp-classic-font-size-base;
+}
+
+p, ul, ol {
+  line-height: @tp-classic-line-height-base;
+  margin-bottom: @tp-mod;
+}
+
+ul.simple {
+  list-style: none;
+  & > li {
+    margin: @tp-mod;
+  }
+}
+
+small,
+small p {
+  font-size: .83em;
+  line-height: .83 * 1.27;
+}
+
+big,
+big p {
+  font-size: @tp-classic-font-size-h5;
+  line-height: 1.2;
+}
+
+.t-lead {
+  font-size: @tp-classic-font-size-medium;
+  line-height: @tp-classic-line-height-medium;
+  &.t-lead_narrow {
+    line-height: @tp-classic-line-height-medium-narrow;
+  }
+}
+
+.t-description {
+  margin: @tp-mod 0;
+
+  font-size: @tp-classic-font-size-xs;
+  line-height: @tp-classic-line-height-xs;
+
+  color: @bs3-gray-dark;
+}
+
+.t-disabled {
+  color: @bs3-gray;
+}
+
+h1, h2, h3, h4 {
+  font-weight: inherit;
+  line-height: 1.2;
+}
+
+h1 {
+  margin: 0 0 @tp-mod*1.8;
+  font-size: @tp-classic-font-size-h1;
+}
+
+h2 {
+  margin: @tp-mod*4 0 @tp-mod*1.4;
+  font-size: @tp-classic-font-size-h2;
+}
+
+h3 {
+  margin: @tp-mod*3.5 0 @tp-mod*1.1;
+  font-size: @tp-classic-font-size-h3;
+}
+
+h4 {
+  margin: @tp-mod*2.8 0 @tp-mod;
+  font-size: @tp-classic-font-size-h4;
+}
+
+h5 {
+  margin: @tp-mod*2.8 0 @tp-mod;
+  font-size: @tp-classic-font-size-h5;
+}
+
+h1.disp, .t-h1-disp { font-size: @tp-classic-font-size-h1-disp; }
+h2.disp, .t-h2-disp { font-size: @tp-classic-font-size-h2-disp; }
+h3.disp, .t-h3-disp { font-size: @tp-classic-font-size-h3-disp; }
+h4.disp, .t-h4-disp { font-size: @tp-classic-font-size-h4-disp; }
+h5.disp, .t-h5-disp { font-size: @tp-classic-font-size-h5-disp; }
+
+h1.disp, .t-h1-disp,
+h2.disp, .t-h2-disp,
+h3.disp, .t-h3-disp,
+h4.disp, .t-h4-disp,
+h5.disp, .t-h5-disp {
+  line-height: 1.27em;
+  small {
+    color: inherit;
+    font-size: .57em;
+  }
+}
+
+h4, h5 {
+  font-weight: bold;
+}
+
+h1 {
+  .badge {
+    top: -2px;
+    position: relative;
+  }
+}
+
+h1, h2, h3, h4, h5 {
+  color: @bs3-gray-darker;
+}
+
+h1, h2, h3, h4, h5 {
+  a {
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+//TODO костыли для старых форм и нового дашборда, который я пока не знаю чем заменить
+
+h1, h2, h3, h4, h5 {
+  &.l-page-header {
+    margin-top: @tp-mod * 3.5 !important;
+  }
+}
+
+h1, h2, h3, h4, h5 {
+  &.l-dash-header {
+    margin-top: 0 !important;
+  }
+}
+
+.muted {
+  opacity: .65;
+}
+
+a.unlined {
+  text-decoration: none;
+  &:hover, &:focus {
+    text-decoration: underline;
+  }
+}

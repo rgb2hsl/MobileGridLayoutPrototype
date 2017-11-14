@@ -1,0 +1,216 @@
+@import (reference) "/css/tp.variables.less";
+@import "mixins.less";
+@import "animations.less";
+
+@options-width: 140px;
+@userpic-size:  48px;
+@log-date-width: 100px;
+
+.t-order {
+  position: relative;
+
+  td, th {
+    padding: @tp-mod;
+  }
+  .t-able__btn-cell > a,
+  .t-able__btn-cell > .t-drop > a {
+    padding: @tp-mod !important;
+  }
+}
+
+.t-order-head {
+  td, th {
+    padding: @tp-mod;
+    text-align: left;
+  }
+}
+
+.t-order__userpic {
+  display: inline-block;
+  vertical-align: middle;
+
+  height: @userpic-size;
+  width: @userpic-size;
+
+  flex-shrink: 0;
+
+  height: @userpic-size;
+  width: @userpic-size;
+
+  background-size: cover;
+
+  border-radius: 50%;
+
+  &.t-order__userpic_small {
+    height: 32px;
+    width: 32px;
+  }
+}
+
+.t-order__name {
+  display: block;
+
+  font-size: @tp-classic-font-size-small;
+  line-height: @tp-classic-line-height-small-condenced;
+}
+
+.t-order__name-big {
+  display: block;
+
+  font-size: @tp-classic-font-size-medium;
+  line-height: @tp-classic-line-height-medium;
+
+  margin-bottom: @tp-mod*.5;
+}
+
+.t-order__subname {
+  display: block;
+
+  font-size: @tp-classic-font-size-base * .769;
+  line-height: @tp-classic-line-height-base * .769;
+  color: @bs3-gray-dark;
+}
+
+.t-order__subname-big {
+  display: block;
+
+  font-size: @tp-classic-font-size-small;
+  line-height: @tp-classic-line-height-small;
+  color: @bs3-gray-dark;
+
+  b {
+    color: @tp-text-color;
+    font-weight: bold;
+  }
+}
+
+.t-order__small-head-names {
+  display: inline-block;
+  vertical-align: middle;
+
+  margin-left: @tp-mod*2;
+}
+
+.t-order__small-info {
+  display: flex;
+  align-items: center;
+}
+
+.t-order__small-info,
+.t-order__ticket-info {
+  margin-right: @options-width + @tp-mod*2;
+}
+
+.t-order__small-options,
+.t-order__ticket-options {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: @options-width;
+}
+
+.t-order__small-option
+.t-order__ticket-option {
+  display: inline-block;
+
+  margin-left: @tp-mod*2;
+}
+.t-order__comment,
+.t-order__tickets,
+.t-order__answers,
+.t-order__sources,
+.t-order__logs,
+.t-order__payment,
+.t-order__other {
+  position: relative;
+  margin-top: @tp-mod*2;
+  padding-left: @tp-mod*2 + @userpic-size;
+}
+
+/*
+  Классы для красивых отступов, чтобы линии строчек текста совпадали
+  Ставятся исключительно методом подбора на месте
+ */
+.t-order__small-label {
+  &.t-order__small-label_10 {
+    top: 9px;
+  }
+  &.t-order__small-label_12 {
+    top: 12px;
+  }
+  &.t-order__small-label_5 {
+    top: 5px;
+  }
+
+  cursor: default;
+
+  display: block;
+
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  color: @bs3-gray-light;
+  font-size: 10px;
+  line-height: 10px;
+}
+
+.t-order__asnwer {
+
+}
+
+.t-order__ticket {
+  &:extend(.mixin-t-label-style);
+  position: relative;
+
+  padding: 6px 12px;
+  margin: @tp-mod*.5 0;
+
+  font-size: 12px;
+  line-height: @tp-classic-line-height-base;
+  color: @bs3-gray-dark;
+
+  b {
+    color: @tp-text-color;
+    font-weight: bold;
+  }
+}
+
+.t-order__wrap {
+  position: relative;
+}
+
+.t-order__param {
+  margin-top: @tp-mod;
+}
+
+.t-order__param-name {
+  color: @bs3-gray-dark;
+  font-size: 11px;
+}
+
+.t-order__param-val {
+  font-size: @tp-classic-font-size-base;
+  line-height: @tp-classic-line-height-small;
+}
+
+.t-order__source {
+  .t-label {
+    margin-right: @tp-mod;
+  }
+}
+
+.t-order__log {
+  margin: @tp-mod*2 0;
+  p {
+    margin: @tp-mod*.5 0;
+  }
+}
+
+.t-order__log-date {
+  margin-right: @tp-mod;
+}

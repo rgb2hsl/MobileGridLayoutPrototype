@@ -1,0 +1,52 @@
+@import (reference) "/css/tp.variables.less";
+@import (reference) "/css/tp.mixins.less";
+
+@t-loader-block-height: 5px;
+@t-loader-block-width: 200px;
+@t-loader-block-border: 2px;
+@t-loader-block-color: @bs3-gray-light;
+
+.t-loader-block {
+  background-color: @bs3-gray-most-light;
+  & > .__logo {
+
+  }
+  & > .__text {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 50%;
+    margin-top: -@tp-mod*4;
+    color: @t-loader-block-color;
+    font-size: @tp-classic-font-size-h4;
+  }
+  & > .__bar {
+
+    height: @t-loader-block-height;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 200px;
+    margin-left: -@t-loader-block-width/2;
+
+    .tp-border-radius(@t-loader-block-height/2 + @t-loader-block-border);
+
+    background-color: @t-loader-block-color;
+    border: @t-loader-block-border solid @t-loader-block-color;
+
+    .__bar__progress {
+      height: @t-loader-block-height;
+      width: 0;
+      position: absolute;
+      background-color: #fff;
+      .tp-border-radius(@t-loader-block-height/2 + @t-loader-block-border);
+
+      -webkit-transition: width 360ms cubic-bezier(.67,.08,.11,.95);
+      -moz-transition: width 360ms cubic-bezier(.67,.08,.11,.95);
+      -ms-transition: width 360ms cubic-bezier(.67,.08,.11,.95);
+      -o-transition: width 360ms cubic-bezier(.67,.08,.11,.95);
+      transition: width 360ms cubic-bezier(.67,.08,.11,.95);
+
+    }
+  }
+}

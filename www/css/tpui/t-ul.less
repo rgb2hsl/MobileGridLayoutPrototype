@@ -1,0 +1,32 @@
+@import "/css/tp.variables.less";
+@import "/css/tp.mixins.less";
+
+.t-ul {
+  list-style: none;
+  & > li {
+    display: block;
+    padding: @tp-mod*.75 @tp-mod;
+    & > a {
+      display: block;
+      margin: -@tp-mod*.75 -@tp-mod;
+      padding: @tp-mod*.75 @tp-mod;
+      text-decoration: none;
+      &:hover,&:active,&:focus {
+        background-color: fade(@tp-link-color,10%);
+        .tp-border-radius(@bs3-border-radius-base);
+      }
+
+      .caret {
+        float: right;
+        opacity: .5;
+      }
+    }
+  }
+
+  &__icon {
+    width: 16px;
+    height: 16px;
+    fill: @tp-link-color;
+    vertical-align: text-bottom;
+  }
+}

@@ -1,0 +1,200 @@
+@import (reference) "/css/tp.variables.less";
+@import (reference) "/css/tp.transitions.less";
+@import "mixins.less";
+@import (reference) "type.less";
+
+.t-metric-value {
+  text-align: center;
+  vertical-align: middle;
+  padding: @tp-mod * .5 @tp-mod * 1.5;
+  box-sizing: border-box;
+
+  color: @tp-gray-unholy;
+  font-size: @tp-classic-font-size-xl;
+  line-height: @tp-mod * 5;
+  font-family: @tp-font-family-sans-serif;
+
+  background-color: fade(@tp-gray-unholy, 20%);
+  .mixin-border-radius(@bs3-border-radius-base);
+
+  /**
+    TODO: убрать, еcли подключим fittext.js
+   */
+  white-space: nowrap;
+}
+
+.t-metric-sub-small {
+  font-size: @tp-classic-font-size-xs;
+  line-height: @tp-mod * 2;
+}
+
+.t-metric {
+  .__name {
+    display: inline-block;
+    vertical-align: middle;
+
+    padding: @tp-mod 0;
+    box-sizing: border-box;
+
+    font-size: @tp-classic-font-size-base;
+    color: @tp-gray-unholy;
+
+    text-align: right;
+
+    margin-right: @tp-mod*1.5;
+  }
+
+  .__value {
+    &:extend(.t-metric-value);
+
+    display: inline-block;
+    text-align: right;
+    margin-right: @tp-mod*2;
+
+    small {
+      display: inline-block;
+      font-size: @tp-classic-font-size-medium;
+      line-height: 1;
+      vertical-align: baseline;
+
+      margin-right: -(@tp-mod * .5);
+    }
+  }
+
+  .__details {
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+.t-metric-dates {
+  display: inline-block;
+  vertical-align: top;
+
+  input[type="text"] {
+    vertical-align: baseline;
+    width: 120px;
+  }
+
+  margin-right: @tp-mod*2;
+}
+
+// Миксин, создающий цветовую схему для одного цвета
+.mixin-t-metric(@metric-color: @tp-gray-unholy) {
+  .__name {
+    color: @metric-color;
+  }
+
+  .__value {
+    background-color: fade(@metric-color, 20%);
+    color: @metric-color;
+
+    span, small, b, i {
+      color: @metric-color;
+    }
+
+    .svg-icon {
+      fill: @metric-color;
+    }
+  }
+}
+
+// Список названий цветов
+@t-metric-colors: tp-promo-timepad, tp-promo-sites, tp-promo-partners, tp-promo-socials, tp-promo-email, tp-promo-timepad, tp-promo-sites, tp-promo-partners, tp-promo-socials, tp-promo-email, tp-dash-metric-orders, tp-dash-metric-sells, tp-dash-metric-fee, tp-dash-metric-fullfill, tp-crm-mail-total-color, tp-crm-mail-delivered-color, tp-crm-mail-clicks-color, tp-crm-mail-unsubscribe-color;
+
+// Миксин, вызывающий миксин для одного цвета для всех цветов в массиве
+.mixin-make-t-metric-color-mode(@counter) when (@counter > 0) {
+  .mixin-make-t-metric-color-mode((@counter - 1));
+
+  @color: extract(@t-metric-colors,@counter);
+  &.t-metric_color-@{color} {
+    .mixin-t-metric(@@color);
+  }
+}
+
+// Непосредственно создание всех цветовых схем
+.t-metric {
+  .mixin-make-t-metric-color-mode(length(@t-metric-colors));
+}
+
+.t-metric.t-metric_fadeable {
+  .__value {
+    -webkit-transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+    span, small, b, i {
+      .transition-tp(color, @transition-delay-long);
+    }
+  }
+}
+
+.t-metric.t-metric_fade {
+  .__value {
+    background-color: mix(@tp-gray-unholy, #fff, 5%) !important;
+    color: @tp-gray-unholy !important;
+    span, small, b, i {
+      color: @tp-gray-unholy !important;
+    }
+  }
+}
+
+.mixin-make-t-metric-layout(@name-width, @value-width) {
+  .t-metric {
+    .__name {
+      width: @name-width;
+    }
+
+    .__value {
+      width: @value-width;
+    }
+  }
+}
+
+.t-metric {
+  .__name {
+    &.__name_big {
+      font-size: @tp-classic-font-size-medium;
+      line-height: @tp-classic-line-height-medium;
+      text-align: left;
+    }
+  }
+
+  .__value {
+    &.__value_big {
+      padding: @tp-mod * 3.5 @tp-mod * 1.5;
+      /* 166000: */
+      font-size: 20px;
+      line-height: 1;
+      text-align: center;
+
+      .svg-icon {
+        width: 16px;
+        height: 16px;
+      }
+    }
+    &.__value_small {
+      padding: ((@tp-mod * 4) - @tp-classic-font-size-medium)/2 @tp-mod * 1.5;
+      font-size: @tp-classic-font-size-medium;
+      line-height: 1;
+      height: @tp-mod * 4;
+      text-align: center;
+      margin: 0;
+    }
+  }
+}
+
+.t-metric {
+  .__sub_small {
+    &:extend(.t-metric-sub-small);
+    height: @tp-mod * 4;
+
+    display: inline-block;
+    vertical-align: middle;
+
+    margin: 0 @tp-mod;
+  }
+}
+
+.t-metric_inline {
+  display: inline-block;
+  margin-right: @tp-mod*2;
+}

@@ -1,0 +1,53 @@
+@import (reference) "/css/tp.variables.less";
+@import (reference) "/css/tp.mixins.less";
+
+.t-panel {
+
+  .__title {
+    .tp-classic-plate();
+    color: @tp-gray-darker;
+    font-weight: 400;
+    font-size: 18px;
+    padding: 4px @bs3-padding-small-horizontal 2px @bs3-padding-small-horizontal;
+    position: relative;
+
+  }
+
+  .__extra {
+    font-size: .61111em;
+    color: @tp-gray-unholy;
+    margin-left: .5em;
+  }
+
+  .__edit {
+    position: absolute;
+    top: 4px;
+    right: @bs3-padding-small-horizontal;
+    padding-left: 20px;
+    background: url(../../img/edit.png) left center no-repeat;
+    font-size: 12px;
+    color: @tp-gray-unholy;
+  }
+
+  .__content {
+    padding-top: 8px;
+    p {
+      line-height: @tp-line-height-base;
+    }
+  }
+
+}
+
+.t-panel_photo {
+
+  text-align: center;
+
+  .__content {
+    padding: 0;
+    text-align: left;
+  }
+
+  .__photo {
+    display: block;
+  }
+}

@@ -1,0 +1,76 @@
+@import (reference) "/css/tp.variables.less";
+
+.tp-border-radius(@radius){
+  border-radius: @radius;
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+}
+
+.tp-classic-plate(@bg: @bs3-gray-lighter) {
+  background: @bg;
+  //border-bottom: 2px solid darken(@bg,10%);
+  .tp-border-radius(0 0 @bs3-border-radius-base @bs3-border-radius-base);
+}
+
+.tp-card {
+  background: #ffffff;
+  padding: 12px 20px;
+  border: 1px solid #DDDDDD;
+  box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.20);
+  border-radius: 2px;
+}
+
+.bs2-box-shadow(@shadow) {
+  -webkit-box-shadow: @shadow;
+  -moz-box-shadow: @shadow;
+  box-shadow: @shadow;
+}
+
+.bs2-transition(@transition) {
+  -webkit-transition: @transition;
+  -moz-transition: @transition;
+  -o-transition: @transition;
+  transition: @transition;
+}
+
+.form-control-focus(@color: @bs3-input-border-focus) {
+  @color-rgba: rgba(red(@color), green(@color), blue(@color), .6);
+  &:focus {
+    border-color: @color;
+    outline: 0;
+    .bs2-box-shadow(~"inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px @{color-rgba}");
+  }
+}
+
+.bs2-input {
+  background-color: @bs3-input-bg;
+  background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+  border: 1px solid @bs3-input-border;
+  border-radius: @bs3-border-radius-base; // Note: This has no effect on <select>s in some browsers, due to the limited stylability of <select>s in CSS.
+
+  .bs2-box-shadow(inset 0 1px 1px rgba(0,0,0,.075));
+  .bs2-transition(~"border-color ease-in-out .15s, box-shadow ease-in-out .15s");
+
+  .form-control-focus();
+}
+
+.clearfix() {
+  &:before,
+  &:after {
+    content: " "; // 1
+    display: table; // 2
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+.color(@color:@tp-link-color-hover) {
+  color: @color;
+  svg, .svg-icon {
+    fill: @color;
+  }
+  .caret {
+    border-top-color: @color;
+  }
+}

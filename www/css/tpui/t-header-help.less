@@ -1,0 +1,26 @@
+@import "mixins.less";
+@import (reference) "/css/tp.variables.less";
+
+.t-header-help {
+  i {
+    cursor: pointer;
+  }
+
+  .t-drop {
+    float:right;
+  }
+
+  ._q-sign {
+    color:#FE8000;
+  }
+
+  .t-drop__list > li > a, .t-drop .__drop > .__list > li > a {
+    white-space: normal;
+  }
+
+  .t-drop__list, .t-drop > .__drop > .__list {
+    &:extend(.mixin-dropdown-content);
+    padding: 0;
+    max-width: @dropdown-max-width;
+  }
+}

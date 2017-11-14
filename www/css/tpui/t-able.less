@@ -1,0 +1,168 @@
+@import "/css/tp.variables.less";
+@import "/css/tp.mixins.less";
+@import "mixins.less";
+
+@tp-sky-darken: darken(@tp-sky,17%);
+@tp-sky-darken-2: darken(@tp-sky,19%);
+
+.t-able {
+
+  td, th {
+    padding: @tp-mod @tp-mod*1.5;
+  }
+
+  thead th,
+  thead td,
+  th {
+    .mixin-t-plate(@bs3-gray-lighter);
+    .mixin-border-radius(0);
+
+    font-size: @tp-classic-font-size-small;
+    line-height: @tp-classic-line-height-small;
+    font-weight: bold;
+
+    color: @bs3-gray-dark;
+
+    &:first-of-type {
+      .mixin-border-radius(@bs3-border-radius-base 0 0 0);
+    }
+    &:last-of-type {
+      .mixin-border-radius(0 @bs3-border-radius-base 0 0);
+    }
+  }
+
+  &.t-able_block {
+    width: 100%;
+  }
+
+  &.t-able_center {
+    td, th {
+      text-align: center;
+    }
+  }
+
+}
+
+.t-able_striped {
+
+  tr:nth-child(2n) td {
+    background-color: @bs3-gray-most-light;
+  }
+
+}
+
+.t-able_operable {
+
+  tr:nth-child(2n) td {
+    background-color: @tp-sky;
+  }
+
+  tr.__active td,
+  td.__active {
+    background-color: @tp-sky-darken;
+  }
+
+  tr:nth-child(2n) td.__active,
+  tr.__active:nth-child(2n) td {
+    background-color: @tp-sky-darken-2;
+  }
+
+}
+
+.t-able_success {
+
+  tr:nth-child(2n) td {
+    background-color: @tp-lime
+  }
+
+}
+
+.t-able {
+  .__bigrow {
+    td, th {
+      font-size: @tp-classic-font-size-medium;
+      line-height: @tp-classic-line-height-base;
+
+      padding-top: @tp-mod*2;
+      padding-bottom: @tp-mod;
+    }
+  }
+  .__smallrow {
+    td, th {
+      font-size: @tp-classic-font-size-small;
+      line-height: @tp-classic-line-height-small;
+      color: @tp-gray-unholy;
+    }
+  }
+}
+
+.t-able {
+  &.t-able_markers {
+    td:first-of-type {
+      padding-left: @tp-mod*4;
+      position: relative;
+    }
+  }
+}
+
+.t-able__marker {
+  display: inline-block;
+
+  position: relative;
+  left: -@tp-mod*2.5;
+  bottom: @tp-mod*1.5;
+
+  margin-right: -@tp-mod*.5;
+
+  &:after {
+    display: block;
+    content: "";
+    position: absolute;
+
+    width: @tp-mod * 1.5;
+    height: @tp-mod * 1.5;
+    border-radius: 50%;
+
+    background-color: @bs3-brand-success;
+  }
+
+  &.t-able__marker_timepad {
+    &:after { background-color: @tp-promo-timepad }
+  }
+
+  &.t-able__marker_sites {
+    &:after { background-color: @tp-promo-sites }
+  }
+
+  &.t-able__marker_partners, &.t-able__marker_partner {
+    &:after { background-color: @tp-promo-partners }
+  }
+
+  &.t-able__marker_socials {
+    &:after { background-color: @tp-promo-socials }
+  }
+
+  &.t-able__marker_email, &.t-able__marker_autoletters {
+    &:after { background-color: @tp-promo-email }
+  }
+
+  &.t-able__marker_other {
+    &:after { background-color: @bs3-gray-dark }
+  }
+}
+
+/*
+  Применяется для td с checkbox внутри
+ */
+.t-able__checkbox {
+
+}
+
+.t-able__btn-cell {
+  a {
+    .mixin-t-btn-style(@tp-link-color, @tp-link-color-hover, transparent, fade(@tp-link-color-hover, 20%));
+
+    line-height: 1;
+    white-space: nowrap;
+  }
+}

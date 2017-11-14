@@ -1,0 +1,188 @@
+@import (reference) "/css/tp.variables.less";
+@import "mixins.less";
+@import "animations.less";
+
+@t-drop-min-width: 160px;
+@t-drop-min-width-large: 240px;
+@t-drop-arrow-height: 5px;
+
+.t-drop {
+  position: relative;
+
+  .t-drop__drop, & > .__drop {
+    .mixin-dropdown-style(@bs3-border-radius-base);
+    float: left;
+    min-width: @t-drop-min-width;
+
+    margin-top: 2px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+
+    display: none;
+
+    z-index: @bs2-zindex-dropdown;
+  }
+
+  .t-drop__drop_show, & > .__drop_show {
+    display: block;
+    .animation-drop-in;
+  }
+
+  .t-drop__drop_arrow,
+  & > .__drop_arrow {
+    margin-top: 3px;
+  }
+
+  .t-drop__drop_arrow::before,
+  & > .__drop_arrow::before {
+    content: "";
+    width: 16px;
+    height: 9px;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAJCAYAAAA7KqwyAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyhpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMDE0IDc5LjE1Njc5NywgMjAxNC8wOC8yMC0wOTo1MzowMiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTQgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NTU2MzEyRUYxM0M5MTFFNzhCMkQ5N0FCNkY1MTRFNDciIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NTU2MzEyRjAxM0M5MTFFNzhCMkQ5N0FCNkY1MTRFNDciPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo1NTYzMTJFRDEzQzkxMUU3OEIyRDk3QUI2RjUxNEU0NyIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo1NTYzMTJFRTEzQzkxMUU3OEIyRDk3QUI2RjUxNEU0NyIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqvmShUAAAB1SURBVHjapJBZCsAwCESzNV3uf9iusaZokaHLR4SHg2QmiZ6IXEsF11j+Z6baPpO+DvsHbY2EOoEhCN50NRTTi87RGAEbcABXUDIB1dABuuR6eDPc30pg7plBepa5kxtXZmHmt4As5okZReuOdjFG2Ek5BRgARpklVBJOf1IAAAAASUVORK5CYII=);
+
+    position: absolute;
+    left: 16px;
+    top: -9px;
+    z-index: @bs2-zindex-dropdown - 1;
+  }
+
+  .t-drop__drop_arrow::after,
+  & > .__drop_arrow::after {
+    content: "";
+    width: 0;
+    height: 0;
+    border-left: @t-drop-arrow-height solid transparent;
+    border-right: @t-drop-arrow-height solid transparent;
+    border-bottom: @t-drop-arrow-height solid #fff;
+    background-color: transparent;
+
+    position: absolute;
+
+    left: 19px;
+    top: -@t-drop-arrow-height;
+    z-index: @bs2-zindex-dropdown;
+  }
+
+  .t-drop__drop_arrow-gray::after,
+  & > .__drop_arrow-gray::after {
+    border-bottom-color: @bs3-gray-most-light;
+  }
+
+  .t-drop__list, & > .__drop > .__list {
+    padding: 5px 0;
+    margin: 2px 0 0;
+    list-style: none;
+  }
+
+  .t-drop__list > li > a > span:first-child, & > .__drop > .__list > li > a > span:first-child{
+    margin-right: @tp-mod/2;
+  }
+
+  //стили для ссылок и лейблов
+  //в стиле бутстраповских списков
+  .t-drop__list > li > a, & > .__drop > .__list > li > a,
+  .t-drop__list > label, & > .__drop > .__list > label {
+    .mixin-dropdown-li-a-style;
+  }
+
+  .t-drop__list > label.checkbox, & > .__drop > .__list > label.checkbox {
+    margin-left: @tp-mod*2;
+  }
+
+  .t-drop__list > li > a:hover, & > .__drop > .__list > li > a:hover,
+  .t-drop__list > li > a:focus, & > .__drop > .__list > li > a:focus {
+    color: #fff;
+    background: @tp-link-color;
+  }
+
+  .t-drop__list_gray > li > a:hover, & > .__drop > .__list_gray > li > a:hover,
+  .t-drop__list_gray > li > a:focus, & > .__drop > .__list_gray > li > a:focus {
+    color: @tp-text-color;
+    background: @bs3-gray-lighter;
+  }
+
+  .t-drop__col, & > .__drop > .__col {
+    margin: 0 @tp-mod*2;
+  }
+
+  .t-drop__c,
+  & > .__drop > .__c {
+    &:extend(.mixin-reset-layout-margins all, .mixin-dropdown-content all);
+    max-width: @dropdown-max-width;
+  }
+
+  .t-drop__title,
+  & > .__drop > .__title {
+    &:extend(.mixin-reset-layout-margins all, .mixin-dropdown-title all);
+    max-width: @dropdown-max-width;
+  }
+}
+
+.t-drop_inline {
+  display: inline-block;
+}
+
+//Boostrap glyphicons adaptation
+.t-drop {
+  .t-drop__list > li > a:hover > [class^="icon-"], & > .__drop > .__list > li > a:hover > [class^="icon-"],
+  .t-drop__list > li > a:focus > [class^="icon-"], & > .__drop > .__list > li > a:focus > [class^="icon-"] {
+    background-image: url("@{tp-glyphicons-sprites-white}");
+  }
+
+  .t-drop__list_gray > li > a:hover > [class^="icon-"], & > .__drop > .__list_gray > li > a:hover > [class^="icon-"],
+  .t-drop__list_gray > li > a:focus > [class^="icon-"], & > .__drop > .__list_gray > li > a:focus > [class^="icon-"] {
+    background-image: url("@{tp-glyphicons-sprites}");
+  }
+}
+
+//Right aligned
+.t-drop {
+
+  .t-drop__drop_right, & > .__drop_right {
+    float: right;
+    top: 100%;
+    left: auto;
+    right: 0;
+  }
+
+  .t-drop__drop_arrow.t-drop__drop_right::before,
+  & > .__drop_arrow.__drop_right::before {
+    left: auto;
+    right: 16px;
+  }
+
+  .t-drop__drop_arrow.t-drop__drop_right::after,
+  & > .__drop_arrow.__drop_right::after {
+    left: auto;
+    right: 19px;
+  }
+}
+
+//Sizing
+.t-drop {
+  .t-drop__drop_l, & > .__drop_l {
+    min-width: @t-drop-min-width-large;
+  }
+}
+
+.t-drop {
+  .t-drop__list-icon-right {
+    margin: 0 0 0 @tp-mod;
+    float: right;
+    &[class^="icon-"] {
+      margin-top: 3px;
+    }
+  }
+}
+
+//Divider
+.t-drop {
+  .divider {
+    height: 1px;
+    margin: 8px 1px;
+    overflow: hidden;
+    background-color: #e5e5e5;
+    border-bottom: 1px solid #fff;
+  }
+}

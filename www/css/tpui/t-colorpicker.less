@@ -1,0 +1,21 @@
+@import (reference) "/css/tp.variables.less";
+
+.t-colorpicker {
+  padding: @tp-mod*2;
+  display: flex;
+  flex-wrap: wrap;
+  width: @tp-mod*3*8;
+}
+.t-colorpicker__item {
+  display: block;
+  height: @tp-mod*3-4px;
+  width: @tp-mod*3-4px;
+  margin: 2px;
+  border-radius: @bs3-border-radius-base;
+  flex-shrink: 0;
+  cursor: pointer;
+  &:hover {
+    margin: 0;
+    border: 2px solid #000;
+  }
+}

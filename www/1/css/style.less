@@ -1,0 +1,88 @@
+@import "/css/tp.variables.less";
+@import "/css/tp.transitions.less";
+
+@import "/css/tpui/legacy.reset.less";
+
+@import "/css/tpui/type.less";
+@import "/css/tpui/layout.classic.less";
+
+@import "timepad-layout.less";
+
+@import "/css/font-awesome.css";
+
+.tp-head {
+  background-color: @tp-brand-color;
+  color: #fff;
+  display: flex;
+  align-items: center;
+}
+.tp-head_invert {
+  transition: background-color 150ms ease-in-out, color 150ms ease-in-out;
+
+  background-color: #fff;
+  color: @tp-brand-color
+}
+.tp-head__item {
+  display: inline-block;
+  margin: 0;
+  font-size: @tp-classic-font-size-h4;
+  color: inherit;
+}
+.tp-content {
+  color: @tp-text-color;
+}
+
+.tp-body {
+
+}
+.tp-body_hidden {
+  display: none;
+}
+.tp-supernav {
+
+}
+.tp-supernav_hidden {
+  display: none;
+  .tp-head_invert {
+    transition: background-color 150ms ease-in-out, color 150ms ease-in-out;
+
+    background-color: @tp-brand-color;
+    color: #fff
+  }
+}
+
+.tp-supernav__navs {
+  background-color: full;
+  color: @tp-brand-color;
+}
+.tp-supernav__navlist {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.tp-supernav__item {
+  display: block;
+
+  color: inherit;
+
+  padding: @mod;
+
+  font-size: @tp-classic-font-size-h4;
+  line-height: @mod*4;
+}
+
+.tp-supernav__navlist-item {
+  display: block;
+
+  box-sizing: border-box;
+  height: @mod * 6;
+
+  border-bottom: 1px solid fade(@tp-brand-color, 10%);
+  &:first-child {
+    border-top: 1px solid fade(@tp-brand-color, 10%);
+  }
+
+  a:extend(.tp-supernav__item) {
+    text-decoration: none;
+  }
+}

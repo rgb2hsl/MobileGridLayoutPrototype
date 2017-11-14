@@ -1,0 +1,30 @@
+@import (reference) "vars.less";
+
+@tpl-g-menu-mod: @mod * 6;
+
+.tpl-g {
+  display: grid;
+  grid-template-columns: 1fr @tpl-g-menu-mod;
+  grid-template-rows: @tpl-g-menu-mod 1fr;
+  grid-template-areas:  "title menu"
+                        "content content";
+}
+.tpl-g_screen {
+  min-height: 100vh;
+}
+
+.tpl-g__menu { grid-area: menu; }
+.tpl-g__menu_jc_c { justify-content: center; }
+.tpl-g__title { grid-area: title; }
+.tpl-g__content { grid-area: content; }
+
+.tpl-nav-menu {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr auto;
+  grid-template-areas:  "top"
+                        "bottom";
+}
+
+.tpl-supernav__top { grid-area: top; }
+.tpl-supernav__bottom { grid-area: bottom; }

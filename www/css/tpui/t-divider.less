@@ -1,0 +1,63 @@
+@import (reference) "/css/tp.variables.less";
+@import "mixins.less";
+
+.t-divider {
+  margin: @tp-mod*2;
+  text-align: center;
+  height: 24px;
+}
+
+.t-divider_line {
+  border-bottom: 2px solid @bs3-gray-lighter;
+}
+
+.t-divider_pinned {
+  margin-bottom: @tp-mod*2 + 24px;
+}
+
+.t-divider > .__pin,
+.t-divider__pin {
+  display: inline-block;
+  background-color: @bs3-gray-lighter;
+
+  font-style: italic;
+  .color(@bs3-gray);
+
+  text-align: center;
+
+  width: 48px;
+  height: 48px;
+  line-height: 46px;
+  vertical-align: middle;
+
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+
+  .svg-icon {
+    vertical-align: middle;
+    height: 1em;
+    width: 1em;
+  }
+}
+
+.t-divider > .__pin_medium,
+.t-divider__pin_medium {
+  .svg-icon {
+    vert-align: middle;
+    height: 1.4em;
+    width: 1.4em;
+  }
+}
+
+.t-divider_dark {
+  &.t-divider_line {
+    border-bottom: 2px solid mix(@bs3-gray-lighter,@bs3-gray-light,80%);
+  }
+  & > .__pin,
+  & .t-divider__pin {
+
+    background-color: mix(@bs3-gray-lighter,@bs3-gray-light,80%);
+    .color(@bs3-gray);
+  }
+}

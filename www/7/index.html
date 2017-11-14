@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>TIMEPAD</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet/less" type="text/css" href="style.less"/>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.7.2/less.min.js"></script>
+    <script
+            src="https://code.jquery.com/jquery-1.8.3.min.js"
+            integrity="sha256-YcbK69I5IXQftf/mYD8WY0/KmEDCv1asggHpJk1trM8="
+            crossorigin="anonymous"></script>
+
+    <script src="/6/js/layout.js" type="text/javascript"></script>
+</head>
+<body>
+
+    <!-- Main UI grid -->
+    <div class="tpl-grid" data-grid="" data-state="default">
+
+        <div class="tpl-grid__content  tp-content" data-grid-state="default">
+            <div class="tpl-content  tp-content__body">
+                <div class="tpl-page">
+                    <div class="tpl-page__pre">
+                        <div class="demo-card">
+                            <h2>Быстрый старт?</h2>
+                            <ul>
+                                <li><a href="#">Какая-то ссылочка</a></li>
+                                <li><a href="#">Фабрика фабрик</a></li>
+                                <li><a href="#">Абстрактая лавочка</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="tpl-page__main">
+                        <div class="l-unit l-unit-h">
+                            <h2>События</h2>
+                            <div class="l-unit">
+                                <div class="tp-card">
+                                    <div class="l-control">
+                                        <h4>Компенсация своевременно исполняет обязательственный</h4>
+                                        <p>Поручительство катастрофично законодательно подтверждает объект права. Наследование, учитывая отсутствие в законе норм, посвященных данному вопросу, гарантирует штраф.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="l-unit">
+                                <div class="tp-card">
+                                    <div class="l-control">
+                                        <h4>При приватизации имущественного комплекса</h4>
+                                        <p>Если рассмотреть все принятые в последнее время нормативные акты, то видно, что причиненный ущерб катастрофично лицензирует акцепт. Субъект, при ближайшем рассмотрении, возмещает ничтожный бытовой подряд.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="l-unit">
+                                <div class="tp-card">
+                                    <div class="l-control">
+                                        <h4>Некоммерческая организация трансформирует</h4>
+                                        <p>По общему правилу сервитут трансформирует акцепт. Страховая сумма, учитывая отсутствие в законе норм, посвященных данному вопросу, безусловно страхует предпринимательский риск.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="l-unit">
+                                <div class="tp-card">
+                                    <div class="l-control">
+                                        <h4>Компенсация своевременно исполняет обязательственный</h4>
+                                        <p>Поручительство катастрофично законодательно подтверждает объект права. Наследование, учитывая отсутствие в законе норм, посвященных данному вопросу, гарантирует штраф.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="l-unit">
+                                <div class="tp-card">
+                                    <div class="l-control">
+                                        <h4>При приватизации имущественного комплекса</h4>
+                                        <p>Если рассмотреть все принятые в последнее время нормативные акты, то видно, что причиненный ущерб катастрофично лицензирует акцепт. Субъект, при ближайшем рассмотрении, возмещает ничтожный бытовой подряд.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="l-unit">
+                                <div class="tp-card">
+                                    <div class="l-control">
+                                        <h4>Некоммерческая организация трансформирует</h4>
+                                        <p>По общему правилу сервитут трансформирует акцепт. Страховая сумма, учитывая отсутствие в законе норм, посвященных данному вопросу, безусловно страхует предпринимательский риск.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tpl-page__post">
+                        <div class="demo-card">
+                            <h2>Не очень важный блок</h2>
+                            <ul>
+                                <li><a href="#">Так себе ссылочка</a></li>
+                                <li><a href="#">Бесползеная фабрика</a></li>
+                                <li><a href="#">Абстрактая лавочка, которую никто все равно никто не использовал второй раз, поэтому можно было и захардкодить</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Three styles concepts: relation behavior (child), self layout (parent) and visual style (colors, etc.) -->
+        <div class="tpl-grid__bar  tpl-bar  tp-bar">
+            <!--This is flexbox top timepad blue bar-->
+
+            <div class="tpl-bar__controls  tpl-dock">
+                <!--Flexbox Dock with bar controls-->
+
+                <!--Burger button-->
+                <a href="#" class="tpl-dock__item  tp-bar-btn" data-grid-state="default" data-grid-state-set="supernav">
+                    <span class="fa fa-bars"></span>
+                </a>
+
+                <!--Navigation close button, HIDDEN-->
+                <a href="#" class="tpl-dock__item  tp-bar-btn" data-grid-state="supernav" data-grid-state-set="default">
+                    <span class="fa fa-close"></span>
+                </a>
+            </div>
+
+            <div class="tpl-bar__tabs" data-grid-state="supernav">
+                <div class="tpl-dock tpl-dock_tabs">
+                    <!--IMPORTANT! _tabs modificator for extra behavior-->
+                    <!--Flexbox Dock with tabs buttons, user and org-->
+
+                    <a href="#" class="tpl-dock__item  tpl-dock__item_org  tp-bar-btn" data-nav-show="org" data-active-class="tp-bar-btn_active">
+                        <span class="fa fa-flag"></span>
+                    </a>
+
+                    <a href="#" class="tpl-dock__item  tpl-dock__item_user  tp-bar-btn" data-nav-show="user" data-active-class="tp-bar-btn_active">
+                        <span class="fa fa-user-circle"></span>
+                        <span class="tpl-bar__username">Евгений П.</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="tpl-bar__title" data-grid-state="default">
+                <!--Title of the page, MOBILE ONLY-->
+                <h1 class="tp-bar__title">Главная</h1>
+            </div>
+
+        </div>
+
+        <!-- tpl-supernav_desktop_inline превращается на десктопе в то, что у нас сейчас главное меню -->
+        <div class="tpl-grid__supernav  tpl-nav-menu tpl-nav-menu_desktop_inline" data-grid-state="supernav">
+            <div class="tpl-nav-menu__body">
+                <!-- Flexbox Supernavigation (Главная, события etc.) -->
+                <ul class="tpl-nav-menu__list">
+                    <li><a href="#">Главная</a></li>
+                    <li><a href="#">События</a></li>
+                    <li><a href="#">CRM и Рассылки</a></li>
+                    <li><a href="#">Настройки</a></li>
+                    <li><a href="#">Помощь</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="tpl-grid__dropdowns tpl-grid__dropdowns_user  tpl-nav-menu tpl-nav-menu_hide" data-nav="user" data-nav-hide-class="tpl-nav-menu_hide" data-grid-state="supernav">
+            <div class="tpl-nav-menu__body">
+                <ul class="tpl-nav-menu__list tpl-nav-menu__list_desktop">
+                    <li><a href="#">Евгений Петриченко</a></li>
+                    <li><a href="#">Персональные настройки</a></li>
+                    <li><a href="#">Выйти</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="tpl-grid__dropdowns tpl-grid__dropdowns_org  tpl-nav-menu tpl-nav-menu_hide" data-nav="org" data-nav-hide-class="tpl-nav-menu_hide" data-grid-state="supernav">
+            <div class="tpl-nav-menu__body">
+                <ul class="tpl-nav-menu__list tpl-nav-menu__list_desktop">
+                    <li><a href="#">Организация 11</a></li>
+                    <li><a href="#">Организация 1488</a></li>
+                    <li><a href="#">+ Добавить организацию</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

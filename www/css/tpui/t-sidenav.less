@@ -1,0 +1,228 @@
+@import "/css/tp.variables.less";
+@import "/css/tp.transitions.less";
+@import "t-card.less";
+
+@width: @side-nav-width;
+@padding: @tp-mod*2;
+
+.mixin-li_active {
+  background: @bs3-gray-lighter;
+  border-color: @bs3-gray-lighter;
+}
+
+.mixin-ul {
+  display: block;
+  list-style: none;
+}
+
+.t-sidenav {
+  width: @width;
+  margin-bottom: 22px;
+  padding-left: 0;
+
+  //если блок — ul, приводим его в годный вид
+  .mixin-ul();
+
+  //пункт меню, чем бы он не был
+  .__li {
+
+    .t-card();
+
+    position: relative;
+    display: block;
+    margin-bottom: 8px;
+    box-sizing: border-box;
+
+    font-weight: bold;
+    font-weight: 500;
+
+    font-size: @tp-classic-font-size-medium;
+    line-height: @tp-classic-line-height-medium;
+
+    z-index: 10;
+
+    //overflow: hidden;
+
+    @collapsed-height: @tp-classic-line-height-medium + (@padding*2);
+
+    height: auto;
+
+    //свернутый пункт меню
+    &.__li_collapsed {
+      height: @collapsed-height;
+
+      //при наведении выглядим как активный пункт меню
+      &:hover, &:focus {
+        .mixin-li_active();
+      }
+    }
+
+    //чтобы ссылка занимала весь размер блока и кликалась
+    & > a {
+      text-decoration: none;
+      color: @tp-gray-unholy;
+
+      display: block;
+
+      padding: @padding;
+      margin: -@padding;
+
+      z-index: 11;
+    }
+  }
+
+  .t-sidenav__input {
+    margin: @tp-mod*1.5 0;
+
+    label {
+      font-weight: bold;
+      font-size: @tp-classic-font-size-small;
+      color: @tp-gray-unholy;
+    }
+    input[type=text],
+    select {
+      width: 100%;
+    }
+  }
+
+  .t-sidenav__input.t-sidenav__input_divided {
+    margin: 0 -@tp-mod*2;
+    padding: @tp-mod*1.5 @tp-mod*2;
+    border-bottom: 1px solid @bs3-gray-lighter;
+  }
+  .t-sidenav__input.t-sidenav__input_divided:first-child {
+    padding-top: 0;
+  }
+  .t-sidenav__input.t-sidenav__input_divided:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .t-sidenav__input:first-child {
+    margin-top: 0;
+  }
+
+  .t-sidenav__input:last-child {
+    margin-bottom: 0;
+  }
+
+  & > .__li {
+
+    //подменю
+    & > ul {
+      margin: 4px -(@tp-mod*2) -4px -(@tp-mod*2 + 32px);
+      padding-left: 0;
+      visibility: visible;
+      opacity: 1;
+      transition: opacity @transition-delay-long linear;
+
+      list-style: none;
+      & > li {
+        display: block;
+      }
+      & > li > a {
+        display: block;
+        padding: 8px;
+        padding-left: 48px;
+
+        opacity: 0.7;
+
+        text-decoration: none;
+        font-size: @tp-classic-font-size-base;
+        font-weight: normal;
+        line-height: @tp-classic-font-size-base + 2px;
+        color: @bs3-gray-darker;
+
+        &.active {
+          background-color: mix(@bs3-gray,@bs3-gray-lighter,50%);
+        }
+        &:hover, &:focus {
+          background-color: mix(@bs3-gray,@bs3-gray-lighter,20%);
+        }
+      }
+    }
+
+    //подменю в сложенном виде
+    &.__li_collapsed > ul {
+      visibility: hidden;
+      opacity: 0;
+    }
+  }
+
+  & > li.__li_active {
+    .mixin-li_active();
+
+    //подменю в активном выбранном пункте
+    & > ul {
+      margin: 4px -(@tp-mod*2) -4px -(@tp-mod*2 + 32px);
+
+      list-style: none;
+      & > li {
+        display: block;
+      }
+      & > li > a {
+        display: block;
+        padding: 8px;
+        padding-left: 48px;
+
+        opacity: 0.7;
+
+        text-decoration: none;
+        font-size: @tp-classic-font-size-base;
+        font-weight: normal;
+        line-height: @tp-classic-font-size-base + 2px;
+        color: @bs3-gray-darker;
+
+        &.active {
+          background-color: mix(@bs3-gray,@bs3-gray-lighter,50%);
+        }
+        &:hover, &:focus {
+          background-color: mix(@bs3-gray,@bs3-gray-lighter,20%);
+        }
+      }
+    }
+  }
+
+  .__icon {
+    width: 20px;
+    height: 20px;
+
+    position: absolute;
+    left: 16px;
+    top: 16px;
+
+    fill: mix(@bs3-gray-dark,@bs3-gray-darker,50%);
+
+    &.dash-main {
+      top: 17px;
+    }
+    &.dash-promo {
+      top: 20px;
+    }
+  }
+
+}
+
+.t-sidenav_with-icons {
+  .__li {
+    @padding-left: @tp-mod*2 + 32px;
+    padding-left: @padding-left;
+    & > a {
+      padding-left: @padding-left;
+      margin-left: -@padding-left;
+    }
+  }
+}
+
+.t-sidenav {
+  &.affix {
+    top: @tp-mod*2;
+  }
+}
+
+.t-sidenav.t-sidenav_flat {
+  & > .__li > ul > li > a {
+    padding-left: 16px;
+    margin-left: 32px;
+  }
+}

@@ -1,0 +1,245 @@
+//========================================================
+// Шрифты
+//========================================================
+@tp-font-family-monospace:  "Courier New", monospace;
+@tp-font-family-sans-serif:  "Helvetica Neue", "Segoe UI", Arial, sans-serif;
+@tp-classic-font-family-sans-serif:  "Helvetica Neue", "Segoe UI", Arial, sans-serif;
+
+//для обоих таймпадов
+@tp-line-height-base: 1.428571429; // 20/14
+
+@tp-classic-font-size-xs: 11px;
+@tp-classic-line-height-xs: 17px;
+
+@tp-classic-font-size-small: 12px;
+@tp-classic-line-height-small: 18px;
+@tp-classic-line-height-small-condenced: 14px; //для таблиц и прочих узких пространств
+
+@tp-classic-font-size-base: 13px;
+@tp-classic-line-height-base: 20px;
+
+//заголовоки
+@tp-classic-font-size-h1: 2.441 * @tp-classic-font-size-base;
+@tp-classic-font-size-h2: 1.953 * @tp-classic-font-size-base;
+@tp-classic-font-size-h3: 1.563 * @tp-classic-font-size-base;
+@tp-classic-font-size-h4: 1.25 * @tp-classic-font-size-base;
+@tp-classic-font-size-h5: 1.15 * @tp-classic-font-size-base;
+
+//display-заголовки
+@tp-classic-font-size-h1-disp: @tp-classic-font-size-h1 * 2;
+@tp-classic-font-size-h2-disp: @tp-classic-font-size-h2 * 2;
+@tp-classic-font-size-h3-disp: @tp-classic-font-size-h3 * 2;
+@tp-classic-font-size-h4-disp: @tp-classic-font-size-h4 * 2;
+@tp-classic-font-size-h5-disp: @tp-classic-font-size-h5 * 2;
+
+
+@tp-classic-font-size-medium: 16px;
+@tp-classic-line-height-medium: 24px;
+@tp-classic-line-height-medium-narrow: 21px;
+
+@tp-classic-font-size-large: 24px;
+@tp-classic-line-height-large: 34px;
+@tp-classic-line-height-large-narrow: 30px;
+
+@tp-classic-font-size-xl: 36px;
+@tp-classic-line-height-xl: 48px;
+
+@bs3-font-size-base:          15px;
+@bs3-font-size-large:         ceil((@bs3-font-size-base * 1.25)); // ~18px
+@bs3-font-size-small:         ceil((@bs3-font-size-base * 0.85)); // ~12px
+
+@bs3-font-size-h1:            floor((@bs3-font-size-base * 2.6)); // ~36px
+@bs3-font-size-h2:            floor((@bs3-font-size-base * 2.15)); // ~30px
+@bs3-font-size-h3:            ceil((@bs3-font-size-base * 1.7)); // ~24px
+@bs3-font-size-h4:            ceil((@bs3-font-size-base * 1.25)); // ~18px
+@bs3-font-size-h5:            @bs3-font-size-base;
+@bs3-font-size-h6:            ceil((@bs3-font-size-base * 0.85)); // ~12px
+
+@bs3-line-height-large:         1.3333333;
+@bs3-line-height-small:         1.5;
+
+@tp-classic-line-height-computed:    floor((@tp-classic-font-size-base * @tp-line-height-base)); // ~20px
+
+//========================================================
+// Размеры лейаутов
+//========================================================
+@tp-classic-width: 1000px;
+@tp-classic-content-padding: 16px;
+@tp-classic-wrapper-width: @tp-classic-width - (@tp-classic-content-padding * 2);
+
+@tp-classic-mainarea-width: 600px;
+@tp-classic-column-width: @tp-classic-wrapper-width - @tp-classic-mainarea-width - @bs3-grid-gutter-width;
+
+@tp-classic-mainarea-2-width: 698px;
+@tp-classic-column-2-width: @tp-classic-wrapper-width - @tp-classic-mainarea-2-width - @bs3-grid-gutter-width;
+
+@bs3-border-radius-base: 2px;
+@bs3-border-radius-large: 4px;
+@bs3-border-radius-small: 2px;
+
+@tp-border-radius-base: @bs3-border-radius-base;
+@tp-border-radius-large: @bs3-border-radius-large;
+@tp-border-radius-small: @bs3-border-radius-small;
+
+//========================================================
+// Цвета
+//========================================================
+
+//самый главный цвет
+@tp-brand-color: #345d73;
+@tp-brand-light:              lighten(@tp-brand-color, 4.01%); //#3a6581
+
+@ep3-editor-bg:               #051922;
+
+@bs3-gray-base:               #000000;
+@bs3-gray-darker:             #222;
+@bs3-gray-dark:               #747878;
+@bs3-gray:                    #a0a5a5;
+@bs3-gray-light:              #b4bcc2;
+@bs3-gray-lighter:            #EDEDED;
+@bs3-gray-most-light:         #f2f2f2;
+@bs3-brand-primary:           @tp-brand-color;
+@bs3-brand-success:           #1DBA7B;
+@bs3-brand-info:              #3498DB;
+@bs3-brand-warning:           #f3af1e;
+@bs3-brand-danger:            #e73c56;
+
+@bs3-state-warning-bg:        lighten(@bs3-brand-warning,20%);
+
+@bs2-inputBackground:         #fff;
+@bs2-inputBorder:             #ccc;
+@bs2-inputHeight:             @tp-classic-line-height-computed + (@bs2-padding-input-vertical * 2) + 2px;
+
+@tp-sand:                     mix(@bs3-brand-warning,#fff,15%);
+@tp-sky:                      lighten(@bs3-brand-info,40%);
+@tp-lime:                     lighten(@bs3-brand-success,50%);
+
+@tp-brand-success-light:      #CCF4CA;
+@tp-brand-warning-light:      #fff1d5;
+@tp-brand-danger-light:       #ffe3e3;
+
+@tp-promo-timepad:            #4096A3;
+@tp-promo-sites:              #C75358;
+@tp-promo-partners:           #9CB043;
+@tp-promo-socials:            #F0984F;
+@tp-promo-email:              #F0661D;
+
+@tp-featured:                 #FF9933;
+
+@tw-color: #51ABF1;
+@fb-color: #4760A5;
+@vk-color: #54769B;
+
+@tp-dash-metric-orders:     #1DBA7B;
+@tp-dash-metric-sells:      @tp-brand-color;
+@tp-dash-metric-fee:        #F0661D;
+@tp-dash-metric-fullfill:   #F3AF1E;
+
+
+@tp-crm-mail-total-color:         @tp-brand-color;
+@tp-crm-mail-delivered-color:     mix(@tp-brand-color,@bs3-brand-success,50%);
+@tp-crm-mail-clicks-color:        @bs3-brand-success;
+@tp-crm-mail-unsubscribe-color:   mix(@tp-brand-color,@bs3-brand-warning,50%);
+
+@tp-gray-darker:              #333333;
+@tp-gray-unholy:              #666666;  //грешноватый цвет
+@tp-gray-light:               #8e8e8e;
+
+@bs3-input-border:            @bs2-inputBorder;
+@bs3-input-bg:                #fff;
+@bs3-input-border-focus:      lighten(@bs3-brand-info, 5%);
+
+//@tp-link-color: @tp-brand-color;
+@tp-link-color: @tp-brand-light;
+@tp-link-color-hover: darken(@tp-brand-light, 15%);
+@tp-text-color: @tp-gray-darker;
+
+//========================================================
+// Формы
+//========================================================
+
+
+
+//========================================================
+// Отступы и сетка
+//========================================================
+
+@tp-mod:                        8px;
+
+@bs3-grid-gutter-width:         30px;
+
+@bs3-padding-base-vertical:     @tp-mod; //8px
+@bs3-padding-base-horizontal:   14px;
+
+@tp-padding-small-vertical:     @tp-mod*.5; // 8px
+@tp-padding-medium-vertical:    @tp-mod*2; //16px
+@tp-padding-large-vertical:     @tp-mod*3; //24px
+
+@bs3-padding-large-vertical:    18px;
+@bs3-padding-large-horizontal:  27px;
+
+@bs3-padding-small-vertical:    7px;
+@bs3-padding-small-horizontal:  9px;
+
+@bs3-padding-xs-vertical:       1px;
+@bs3-padding-xs-horizontal:     5px;
+
+@bs2-padding-input-vertical:    @tp-mod*.6;
+@bs2-padding-input-horizontal:    @tp-mod*1;
+
+//========================================================
+// Респонсивность
+//========================================================
+
+// Extra small screen / phone
+//** Deprecated `@screen-xs` as of v3.0.1
+@bs3-screen-xs:                  480px;
+//** Deprecated `@bs3-screen-xs-min` as of v3.2.0
+@bs3-screen-xs-min:              @bs3-screen-xs;
+//** Deprecated `@bs3-screen-phone` as of v3.0.1
+@bs3-screen-phone:               @bs3-screen-xs-min;
+
+// Small screen / tablet
+//** Deprecated `@screen-sm` as of v3.0.1
+@bs3-screen-sm:                  900px;
+@bs3-screen-sm-min:              @bs3-screen-sm;
+//** Deprecated `@bs3-screen-tablet` as of v3.0.1
+@bs3-screen-tablet:              @bs3-screen-sm-min;
+
+// Medium screen / desktop
+//** Deprecated `@bs3-screen-md` as of v3.0.1
+@bs3-screen-md:                  1024px;
+@bs3-screen-md-min:              @bs3-screen-md;
+//** Deprecated `@bs3-screen-desktop` as of v3.0.1
+@bs3-screen-desktop:             @bs3-screen-md-min;
+
+// Large screen / wide desktop
+//** Deprecated `@bs3-screen-lg` as of v3.0.1
+@bs3-screen-lg:                  1100px;
+@bs3-screen-lg-min:              @bs3-screen-lg;
+//** Deprecated `@bs3-screen-lg-desktop` as of v3.0.1
+@bs3-screen-lg-desktop:          @bs3-screen-lg-min;
+
+// So media queries don't overlap when required, provide a maximum
+@bs3-screen-xs-max:              (@bs3-screen-sm-min - 1);
+@bs3-screen-sm-max:              (@bs3-screen-md-min - 1);
+@bs3-screen-md-max:              (@bs3-screen-lg-min - 1);
+
+@bs2-zindex-dropdown:             1000;
+@bs2-zindex-popover:              1010;
+@bs2-zindex-tooltip:              1030;
+@bs2-zindex-fixed-navbar:         1030;
+@bs2-zindex-modal-backdrop:       1040;
+@bs2-zindex-modal:                1050;
+
+//========================================================
+// Всякие константы
+//========================================================
+@tp-hover-opacity: .67;
+
+@side-nav-width: 260px;
+@dropdown-max-width: 260px;
+
+@tp-glyphicons-sprites:           "/img/glyphicons-halflings.png";
+@tp-glyphicons-sprites-white:     "/img/glyphicons-halflings-white.png";
+

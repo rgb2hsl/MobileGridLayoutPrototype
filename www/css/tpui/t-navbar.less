@@ -1,0 +1,59 @@
+// Lightweight reincarnation of BS2 navbar
+@import "/css/tp.variables.less";
+@import "mixins.less";
+
+.t-navbar.t-navbar_dark {
+  background-color: #000000;
+}
+
+.t-navbar_inner:extend(.clearfix all) {
+  padding-left:  @tp-mod*2;
+  padding-right: @tp-mod*2;
+}
+
+.t-navbar__block {
+  display: block;
+  margin: 0 @tp-mod;
+  padding: ((@tp-mod*6 - @tp-classic-line-height-computed) / 2) @tp-mod*2;
+  .color(#fff);
+  line-height: @tp-classic-line-height-computed;
+
+  &:first-child {
+    margin-left: 0;
+  }
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.t-navbar__brand:extend(.t-navbar__block all) {
+  font-weight: bold;
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
+}
+
+.t-navbar__nav:extend(.t-navbar__block all) {
+  display: flex !important;
+  padding: 0 !important;
+}
+
+.t-navbar__nav > li { display: block; }
+
+.t-navbar__nav > li > a {
+  &:extend(.t-navbar__block all);
+  margin: 0;
+  text-decoration: none;
+  &:focus,
+  &:hover {
+    text-decoration: none;
+    opacity: .6;
+    .color(#fff);
+  }
+  .caret { vertical-align: middle; }
+}
+
+.t-navbar.t-navbar_dark .t-navbar__block,
+.t-navbar.t-navbar_dark  .t-navbar__nav > li > a:focus,
+.t-navbar.t-navbar_dark  .t-navbar__nav > li > a:hover { .color(@bs3-gray); }

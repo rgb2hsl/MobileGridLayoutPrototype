@@ -1,0 +1,420 @@
+@import (reference) "/css/tp.variables.less";
+@import "mixins.less";
+@import (reference) "type.less";
+
+@t-card-padding: @tp-mod*2;
+@t-card-border-width: 1px;
+@t-card-small-width: @tp-mod * 18;
+
+.t-card {
+  &:extend(.mixin-reset-layout-margins all);
+  .mixin-border-radius(@bs3-border-radius-base);
+
+  padding: @t-card-padding;
+  border: @t-card-border-width solid @bs3-gray-lighter;
+  box-sizing: border-box;
+  position: relative;
+
+  font-size: @tp-classic-font-size-base;
+  line-height: @tp-classic-line-height-base;
+
+  & > .__c {
+    p {
+      margin-top: @tp-mod*.5;
+      margin-bottom: @tp-mod*.5;
+    }
+    &:extend(.mixin-reset-layout-margins all);
+  }
+
+  & > .__actions.__actions_bottom {
+    margin-top: @tp-mod * 3;
+  }
+
+  /**
+    TODO: deprecated! используйте .t-card.t-card_p0
+   */
+  .t-card__c_reset {
+    margin: -@t-card-padding;
+  }
+
+  .t-card__c_self-padding {
+    padding: @t-card-padding;
+  }
+
+  .t-card__c_self-small-padding {
+    padding: @tp-mod;
+  }
+}
+
+.t-card__c { &:extend(.t-card .__c all); }
+
+//TODO deprecated используйте .p_0
+.t-card.t-card_p0 {
+  padding: 0 !important;
+}
+
+.t-card__c {
+  &:extend(.t-card > .__c);
+}
+
+.t-card__actions.t-card__actions_bottom {
+  &:extend(.t-card > .__actions.__actions_bottom);
+}
+
+.t-card__h {
+  font-size: @tp-classic-font-size-medium;
+  line-height: @tp-classic-line-height-medium;
+  font-weight: bold;
+
+  margin-bottom: @tp-mod;
+
+  small {
+    font-weight: normal;
+    color: @bs3-gray-dark;
+  }
+}
+
+a.t-card {
+  display: inline-block;
+}
+
+label.t-card {
+  font-weight: normal;
+}
+
+.t-card_fill {
+  background-color: @bs3-gray-lighter;
+}
+
+.t-card_warning {
+  border-color: @tp-sand;
+
+  &.t-card_fill {
+    background-color: @tp-sand;
+  }
+}
+
+.t-card_danger {
+  border-color: @bs3-brand-danger;
+  .color(#fff);
+
+  &.t-card_fill {
+    background-color: @bs3-brand-danger;
+  }
+}
+
+.t-card_success {
+  border-color: @tp-lime;
+
+  &.t-card_fill {
+    background-color: @tp-lime;
+  }
+}
+
+.t-card_lamp {
+  padding-left: @tp-mod*12; //96px
+  padding-bottom: @tp-mod*2.5;
+
+  min-height: @tp-mod*12; //чтобы лампочка не становилась меньше
+
+  & > .__h {
+    margin-top: @tp-mod*.5;
+  }
+
+  position: relative;
+
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: @tp-mod*2;
+    left: @tp-mod*2;
+    width: @tp-mod*8;
+    height: @tp-mod*8;
+    .mixin-border-radius(50%);
+    background-color: #fff;
+    background-image: url("/img/tpui/t-card_lamp.svg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+
+.t-card_list {
+  padding-left: @tp-mod*12; //96px
+  padding-bottom: @tp-mod*2.5;
+
+  min-height: @tp-mod*12; //чтобы лампочка не становилась меньше
+
+  & > .__h {
+    margin-top: @tp-mod*.5;
+  }
+
+  position: relative;
+
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: @tp-mod*2;
+    left: @tp-mod*2;
+    width: @tp-mod*8;
+    height: @tp-mod*8;
+    .mixin-border-radius(50%);
+    background-color: #fff;
+    background-image: url("/img/tpui/t-card_list.svg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+
+.t-card_hover {
+  &:hover {
+    .t-card_fill();
+  }
+
+  &.t-card_warning:hover {
+    .t-card_warning.t-card_fill();
+  }
+
+  &.t-card_fill:hover {
+    background-color: lighten(@bs3-gray-lighter,3%);
+    border-color: lighten(@bs3-gray-lighter,3%);
+  }
+
+  &.t-card_warning.t-card_fill:hover {
+    background-color: lighten(@tp-sand,3%);
+    border-color: lighten(@tp-sand,3%);
+  }
+}
+
+.t-card_active {
+  padding: @t-card-padding - 3;
+  border-color: @bs3-brand-success !important;
+  border-width: 4px;
+
+  &.t-card_fill {
+    background-color: #fff !important;
+  }
+
+  &:hover {
+    background-color: #fff !important;
+  }
+}
+
+.t-card {
+  .t-card__labels-cont {
+    display: flex;
+    justify-content: space-between;
+  }
+  .t-card__labels {
+    flex-shrink: 0;
+    margin-left: @tp-mod*2;
+  }
+  .t-card__labeled {
+
+  }
+}
+
+.t-card {
+  & > .__picture {
+    float: left;
+    margin-right: @tp-mod*2;
+  }
+}
+
+.t-card.t-card_w-picture {
+  position: relative;
+  padding-top: 108px + @tp-mod*2;
+
+  & > .__picture {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 108px;
+
+    margin: -@t-card-border-width;
+
+    .mixin-border-radius(@bs3-border-radius-base @bs3-border-radius-base 0 0);
+
+    background-color: @tp-brand-color;
+    background-size: cover;
+    background-position: center center;
+
+    &.__picture_white {
+      margin: 0;
+      margin-bottom: -1px;
+
+      border-bottom: @t-card-border-width solid @bs3-gray-lighter;
+
+      background-color: #fff;
+    }
+  }
+}
+
+.t-card_large {
+  padding: @tp-mod*4;
+  text-align: center;
+}
+
+.t-card__column {
+  box-sizing: border-box;
+  border-left: 1px solid @bs3-gray-lighter;
+  &.t-card__column_small {
+    width: @t-card-small-width+1;
+  }
+}
+
+.t-card__column:first-child {
+  border-left: none;
+}
+
+//карточки событий для таймпада
+.t-card {
+  &.t-card_event-public { flex-direction: column !important; }
+  &.t-card_event {
+    display: flex;
+    margin: @tp-mod*2 0;
+    padding: 0;
+
+    & > .__main {
+      order: -1;
+      &:extend(.l-flex__1 all);
+      padding: @tp-mod*2;
+      border-right: 1px solid @bs3-gray-lighter
+    }
+
+    & > .__options {
+      &:extend(.t-card__column all);
+      &:extend(.t-card__column.t-card__column_small all);
+      padding: @tp-mod;
+      flex-shrink: 0;
+    }
+
+    & > .__c { padding: @tp-mod*2; }
+
+    & > .__poster {
+      display: flex;
+      flex-direction: column-reverse;
+      position: relative;
+
+      & > .__color {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+      }
+
+      min-height: 160px;
+      background-size: cover;
+      background-position: center center;
+      background-color: @bs3-gray;
+      color: #fff !important;
+
+      a { color: #fff !important; }
+
+      svg { fill: #fff !important; }
+
+      & > .__c {
+        padding: @tp-mod*2;
+        z-index: 10;
+      }
+    }
+
+    .t-card_event__now { font-weight: bold; }
+    .t-card_event__glance { opacity: .4; }
+    &:hover {
+      .t-card_event__glance {
+        opacity: 1;
+      }
+    }
+    .t-card_event__visibility { vertical-align: sub; }
+    .t-card_event__header {
+      margin-top: 0;
+      font-size: @tp-classic-font-size-h4;
+      font-weight: bold;
+    }
+    .t-card_event__icon {
+      width: 16px;
+      height: 16px;
+      fill: @tp-gray-darker;
+      vertical-align: baseline;
+      margin-bottom: -3px;
+    }
+    .t-card_event__info {
+      color: @tp-gray-darker;
+      margin: @tp-mod 0;
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+    .t-card_event__labels {
+      line-height: @tp-mod*3;
+    }
+
+    &.t-card_event__draft {
+      a,
+      .t-card_event__info,
+      .t-ul__icon,
+      .t-card_event__icon {
+        color: @bs3-gray;
+        fill: @bs3-gray;
+      }
+
+      .glyphicon {
+        opacity: .5;
+      }
+
+      .label-draft {
+        background-color: @bs3-gray;
+      }
+    }
+
+    &.t-card_event__passed .__main a,
+    &.t-card_event__passed .__c a,
+    &.t-card_event__passed .__c a small,
+    &.t-card_event__passed .__c p,
+    &.t-card_event__passed .__options a,
+    &.t-card_event__passed .t-card_event__info,
+    &.t-card_event__passed .t-ul__icon,
+    &.t-card_event__passed .t-card_event__icon {
+      color: @bs3-gray;
+      fill: @bs3-gray;
+    }
+
+    &.t-card_event__passed .t-card_event__labels,
+    &.t-card_event__passed .__poster{
+      opacity: .5;
+    }
+  }
+}
+
+.t-card_radio {
+  text-align: center;
+
+  .__radio_description {
+    font-size: @tp-classic-font-size-xs;
+    line-height: @tp-classic-line-height-xs;
+    color: @bs3-gray-dark;
+    margin-top: @tp-mod * 0.5;
+  }
+
+  input[type="radio"] {
+    margin-top: -4px;
+  }
+}
+
+.t-card.t-card_subtile {
+  p,
+  .t-card__h,
+  .t-card__h a,
+  .t-card__h a:hover,
+  .t-card__h a:focus
+  {
+    .color(@bs3-gray);
+  }
+}

@@ -1,0 +1,29 @@
+@import (reference) "/css/tp.variables.less";
+@import "mixins.less";
+@import (reference) "type.less";
+
+@gutter: @tp-mod*2;
+
+.t-pager {
+  margin: 0 -@gutter/2;
+}
+
+.t-pager > .__text,
+.t-pager .t-pager__text,
+.t-pager > .__pages,
+.t-pager .t-pager__pages {
+  display: inline-block;
+  margin: 0 @gutter/2;
+}
+
+/**
+  Блоки текста слева и справа от пагинатора и сами ячейки
+ */
+.t-pager > .__text,
+.t-pager .t-pager__text {
+  font-size: @tp-classic-font-size-xs;
+
+  .mixin-layout-abstract-btn-padding;
+  padding-left: 0;
+  padding-right: 0;
+}

@@ -1,0 +1,38 @@
+@import (reference) "/css/tp.variables.less";
+
+.t-faq {
+  margin-bottom: @bs3-padding-large-horizontal;
+
+  .__head {
+    margin-bottom: @bs3-padding-base-horizontal;
+  }
+
+  .__list {
+    list-style: none;
+    padding-left: @tp-mod*2;
+    border-left: 2px solid @tp-brand-light;
+  }
+
+  .__q {
+    margin-bottom: 1em;
+
+    a {
+      font-family: Arial, sans-serif;
+      font-size: 1em;
+      color: #003366;
+      text-decoration: underline;
+
+      display: inline-block;
+      *zoom: 1;
+      *display: block;
+
+      line-height: 1;
+    }
+
+    &:last-child {
+      margin-bottom: 0px;
+    }
+  }
+
+
+}

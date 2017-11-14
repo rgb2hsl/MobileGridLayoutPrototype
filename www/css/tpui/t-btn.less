@@ -1,0 +1,68 @@
+@import (reference) "/css/tp.variables.less";
+@import (reference) "/css/tp.mixins.less";
+@import "mixins.less";
+
+/*
+  TODO сделать так же кнопки в списке событий (они там похожие один в один, но на каких-то своих стилях) t-event или как-то так
+ */
+
+.t-btn {
+  display: inline-block;
+  .mixin-t-btn-style;
+}
+button.t-btn {
+  text-align: left;
+  border: none;
+}
+
+.t-btn_sm {
+  padding: @tp-mod*.5 @tp-mod*.75 !important;
+  font-size: @tp-classic-font-size-xs !important;
+  line-height: @tp-classic-line-height-xs !important;
+  &.t-btn_dark {
+    padding: (@tp-mod*.5)-1 @tp-mod*.75 !important;
+  }
+}
+
+@primary:   @bs3-brand-primary;
+@success:   @bs3-brand-success;
+@info:      @bs3-brand-info;
+@warning:   @bs3-brand-warning;
+@danger:    @bs3-brand-danger;
+@featured:  @tp-featured;
+@subtile:  @bs3-gray;
+
+// Список названий цветов
+@t-btn-colors: primary, success, info, warning, danger, featured, subtile;
+
+// Миксин, вызывающий миксин для одного цвета для всех цветов в массиве
+.mixin-make-t-btn-color-mode(@counter) when (@counter > 0) {
+  .mixin-make-t-btn-color-mode((@counter - 1));
+
+  @color: extract(@t-btn-colors, @counter);
+  &.t-btn_@{color} {
+    .mixin-t-btn-style-colors(@@color);
+  }
+}
+
+.t-btn { .mixin-make-t-btn-color-mode(length(@t-btn-colors)); }
+
+.t-btn_hover_font:hover,
+.t-btn_hover_font:focus,
+.t-btn_hover_font:active{
+  box-shadow: none !important;
+  background-color: transparent !important;
+}
+
+.t-btn_d_b { display: block; }
+
+.t-btn_caps {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.t-btn.t-btn_framed,
+.t-btn.t-btn_dark,
+.t-btn.t-btn_active {
+  /** смотри .mixin-t-btn-style-colors */
+}
