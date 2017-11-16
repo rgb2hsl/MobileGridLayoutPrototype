@@ -27,11 +27,11 @@ body {
   Основной грид страницы
  */
 .tpl-grid {
-  display: -ms-grid;
   display: grid;
+  display: -ms-grid;
   position: relative;
-  grid-template-columns:  1fr;
-  -ms-grid-columns:       1fr;
+  grid-template-columns:  auto;
+  -ms-grid-columns:       auto;
   grid-template-rows:   auto 1fr;
   -ms-grid-rows:        auto 1fr;
 
@@ -64,25 +64,29 @@ body {
                           "supernav supernav supernav"
                           "asidel content asider";
 
-    .tpl-grid__bar        {
+    .tpl-grid__bar {
       grid-area: bar;
-      -ms-grid-column: 1 3;
+      -ms-grid-column: 1;
+      -ms-grid-column-span: 2;
       -ms-grid-row: 1;
     }
     .tpl-grid__supernav {
       grid-area: supernav;
       -ms-grid-row: 2;
-      -ms-grid-column: 1 3;
+      -ms-grid-column: 1;
+      -ms-grid-column-span: 2;
     }
     .tpl-grid__dropdowns {
       position: absolute;
       grid-area: auto;
       grid-column-start: 2;
       grid-column-end: 3;
-      -ms-grid-column: 2 3;
+      -ms-grid-column: 2;
+      -ms-grid-column-span: 1;
       grid-row-start: 2;
       grid-row-end: 3;
-      -ms-grid-row: 2 3;
+      -ms-grid-row: 2;
+      -ms-grid-row-span: 1;
     }
     .tpl-grid__content {
       grid-area: content;
@@ -140,7 +144,8 @@ body {
     .tpl-page__main   {
       grid-area: main;
       -ms-grid-row: 2;
-      -ms-grid-column: 1 2;
+      -ms-grid-column: 1;
+      -ms-grid-column-span: 1;
     }
     .tpl-page__post   {
       grid-area: post;
@@ -164,7 +169,8 @@ body {
     }
     .tpl-page__main   {
       grid-area: main;
-      -ms-grid-row: 1 2;
+      -ms-grid-row: 1;
+      -ms-grid-row-span: 1;
       -ms-grid-column: 1;
     }
     .tpl-page__post   {
