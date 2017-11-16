@@ -195,14 +195,16 @@ body {
   grid-template-areas:    "control"
                           "content";
 
-  .tpl-dashboard__content {
-    grid-area: content;
-  }
+  .tpl-dashboard__content,
   .tpl-dashboard__nav {
     grid-area: content;
+    -ms-grid-column: 1;
+    -ms-grid-row: 2;
   }
   .tpl-dashboard__nav-control {
     grid-area: control;
+    -ms-grid-column: 1;
+    -ms-grid-row: 1;
   }
 
   @media (min-width: @tpl-w-desktop) {
