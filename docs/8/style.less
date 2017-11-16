@@ -82,11 +82,11 @@ body {
       grid-column-start: 2;
       grid-column-end: 3;
       -ms-grid-column: 2;
-      -ms-grid-column-span: 2;
+      -ms-grid-column-span: 1;
       grid-row-start: 2;
       grid-row-end: 3;
       -ms-grid-row: 2;
-      -ms-grid-row-span: 2;
+      -ms-grid-row-span: 1;
     }
     .tpl-grid__content {
       grid-area: content;
@@ -95,6 +95,8 @@ body {
     }
     .tpl-grid__dropdowns_user {
       right: 0;
+      -ms-right: auto;
+      -ms-grid-column-align: right;
     }
   }
 }
@@ -213,7 +215,7 @@ body {
     .tpl-dashboard__content {
       grid-area: content;
       -ms-grid-row: 1;
-      -ms-grid-columns: 2;
+      -ms-grid-column: 2;
     }
     .tpl-dashboard__nav {
       grid-area: nav;
